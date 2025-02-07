@@ -53,8 +53,9 @@
             <div class="mt-2 flex gap-3">
               <button
                 type="button"
-                class="inline-flex w-full items-center gap-2 rounded-xl border-2 border-brands-light-green bg-transparent p-2.5 text-xs font-semibold uppercase text-brands-light-green hover:bg-brands-light-green hover:text-white focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-200 disabled:bg-transparent disabled:text-gray-400"
-              >
+                class="open inline-flex w-full items-center gap-2 rounded-xl border-2 border-brands-light-green bg-transparent p-2.5 text-xs font-semibold uppercase text-brands-light-green hover:bg-brands-light-green hover:text-white focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-200 disabled:bg-transparent disabled:text-gray-400"
+                data-modal-target="modal-topup"
+                >
                 <span
                   class="i-material-symbols-download-rounded text-icon-sm"
                 ></span>
@@ -63,7 +64,8 @@
 
               <button
                 type="button"
-                class="inline-flex w-full items-center gap-2 rounded-xl bg-brands-light-green p-2.5 text-xs font-semibold uppercase text-white hover:bg-brands-dark-green focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                class="open inline-flex w-full items-center gap-2 rounded-xl bg-brands-light-green p-2.5 text-xs font-semibold uppercase text-white hover:bg-brands-dark-green focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                data-modal-target="modal-transfer"
               >
                 <span
                   class="i-material-symbols-upload-rounded text-icon-sm"
@@ -245,6 +247,230 @@
         </a>
       </div>
         <!-- Navbar -->
+
+
+        <!-- modal topup -->
+         <dialog id="modal-topup" class="m-0 size-full open:max-w-none open:max-h-none bg-transparent backdrop:bg-black/50 backdrop:backdrop-blur-lg open:flex open:flex-col open:justify-end">
+          <div class="flex flex-col">
+            <div class="flex justify-between px-6 pb-8">
+              <button type="button" class="invisible text-brands-light-green inline-flex items-center bg-white rounded-xl p-2 text-brands-light-greens gap-2 font-semibold hover:bg-emerald-50 text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-300" >
+                <span class="i-material-symbols-chevron-left-rounded text-icon-sm"></span>
+                <span>Back</span>
+              </button>
+              <button type="button" class=" close text-brands-light-green inline-flex items-center bg-white rounded-xl p-2 text-brands-light-greens gap-2 font-semibold hover:bg-emerald-50 text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-300 " data-modal-target="modal-topup">
+                <span class="i-material-symbols-close-rounded text-icon-sm"></span>
+                <span>Close</span>
+              </button>
+            </div>
+            <div class="bg-white flex flex-col gap-8 rounded-t-[36px] p-6">
+              <form action="post" class="flex flex-col gap-4">
+                <div>
+                  <div class="relative">
+                    <input inputmode="numeric" type="number" id="my-input-text" class="w-full rounded-2xl border border-gray-400 bg-white p-3 ps-12 pe-12 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-green-400 focus:ring-2 invalid:bg-red-200 invalid:text-red-900 invalid:caret-red-900 focus:invalid:ring-red-900 peer disabled:border-gray-300 disabled:bg-gray-100" placeholder="Nominal Rupiah" >
+                    <div class="absolute inset-y-0 start-0 text-icon-md flex items-center ps-4 text-gray-400 peer-invalid:text-red-400 peer-invalid:peer-focus:text-red-900">
+                      <span class="i-material-symbols-account-balance-wallet"></span>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="justify-center inline-flex items-center bg-brands-light-green rounded-xl p-2.5 text-white gap-2 font-semibold hover:bg-brands-dark-green text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
+                  <span class="i-material-symbols-send-rounded text-icon-sm"></span>
+                  <span>Top Up</span>
+                </button>
+              </form>
+            </div>
+          </div>
+         </dialog>
+          <!-- modal topup -->
+
+          <!-- modal transfer -->
+          <dialog id="modal-transfer" class="m-0 size-full open:max-w-none open:max-h-none bg-transparent backdrop:bg-black/50 backdrop:backdrop-blur-lg open:flex open:flex-col open:justify-end">
+            <div class="flex flex-col">
+              <div class="flex justify-between px-6 pb-8">
+                <button type="button" id="button-back-modal-content" class="invisible text-brands-light-green inline-flex items-center bg-white rounded-xl p-2 text-brands-light-greens gap-2 font-semibold hover:bg-emerald-50 text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-300 " data-history-back="[]">
+                  <span class="i-material-symbols-chevron-left-rounded text-icon-sm"></span>
+                  <span>Back</span>
+                </button>
+                <button type="button" class=" close text-brands-light-green inline-flex items-center bg-white rounded-xl p-2 text-brands-light-greens gap-2 font-semibold hover:bg-emerald-50 text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-300 " data-modal-target="modal-transfer">
+                  <span class="i-material-symbols-close-rounded text-icon-sm"></span>
+                  <span>Close</span>
+                </button>
+              </div>
+              <div class="bg-white flex flex-col gap-8 rounded-t-[36px] p-6">
+               <!-- Section account check -->
+                <div id="modal-content--account-check">
+                <form action="" method="post" class="flex flex-col gap-4 w-full">
+                  <!-- logo dan search button -->
+                  <div class="flex justify-between">
+                    <div class="flex items-center gap-4">
+                      <img src="../images/logo-green.svg" alt="logo" class="h-5">
+
+                    </div>
+
+                    <a href="#" class="text-xs font-semibold text-brands-light-green hover:text-brands-light-green focus:outline-none focus:right-2 focus:ring-green-400" onclick="showSearchContact()">Cari Contact</a>
+                  </div>
+                   <!-- logo dan search button -->
+
+                   <!-- input -->
+                   <div>
+                    <div class="relative">
+                      <input type="text" id="my-input-text" class="w-full rounded-2xl border border-gray-400 bg-white p-3 ps-12 pe-12 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-green-400 focus:ring-2 invalid:bg-red-200 invalid:text-red-900 invalid:caret-red-900 focus:invalid:ring-red-900 peer disabled:border-gray-300 disabled:bg-gray-100" placeholder="Masukan Kusaku ID" >
+                      <div class="absolute inset-y-0 end-0 text-icon-md flex items-center pe-4 text-gray-400 peer-invalid:text-red-400 peer-invalid:peer-focus:text-red-900">
+                        <span class="i-material-symbols-search-rounded"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="justify-center inline-flex items-center bg-brands-light-green rounded-xl p-2.5 text-white gap-2 font-semibold hover:bg-brands-dark-green text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
+                    <span class="i-material-symbols-search-rounded text-icon-sm"></span>
+                    <span>Cek Rekening</span>
+                  </button>
+                     <!-- input -->
+                </form>
+               </div>
+               <!-- Section account check -->
+
+               <!-- Section search contact -->
+               <div id="modal-content--search-contact" class="hidden">
+<div class="flex flex-col w-full">
+  <div>
+    <div class="relative">
+      <input type="text" id="my-input-text" class="w-full rounded-2xl border border-gray-400 bg-white p-3 pe-12 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-green-400 focus:ring-2 invalid:bg-red-200 invalid:text-red-900 invalid:caret-red-900 focus:invalid:ring-red-900 peer disabled:border-gray-300 disabled:bg-gray-100" placeholder="Cari nama orang / no rekening" >
+      <div class="absolute inset-y-0 start-0 text-icon-md flex items-center ps-4 text-gray-400 peer-invalid:text-red-400 peer-invalid:peer-focus:text-red-900">
+      </div>
+      <div class="absolute absolute inset-y-0 end-0 text-icon-md flex items-center pe-4 text-gray-400 peer-invalid:text-red-400 peer-invalid:peer-focus:text-red-900">
+        <span class="i-material-symbols-search-rounded"></span>
+      </div>
+    </div>
+  </div>
+
+<!-- items -->
+<a href="#" class="flex justify-between hover:bg-emerald-50 focus:outline-none focus:right-2 focus:ring-green-400 p-3 rounded-2xl" onclick="showInputNominal()">
+  <!-- Left -->
+  <span class="flex items-center gap-5">
+    <span class="i-material-symbols-person-outline text-icon-lg text-brands-light-green flex-shrink-0"></span>
+    <span class="flex flex-col">
+      <span class="text-sm font-semibold text-gray-900 line-clamp-2">Rhianna</span>
+      <span class="text-xs text-gray-500 line-clamp-1">78647342</span>
+    </span>
+  </span>
+  <!-- Left -->
+
+  <!-- Right -->
+  <span class="flex items-center gap-2 flex-shrink-0">
+
+    <span class="i-material-symbols-chevron-right-rounded text-icon-md text-gray-900"></span>
+  </span>
+  <!-- Right -->
+</a>
+<div class="flex gap-4 whitespace-nowrap px-5 my-2.5">
+  <div class="flex-grow-1 h-[1px] w-full bg-gray-300"></div>
+</div>
+<a href="#" class="flex justify-between hover:bg-emerald-50 focus:outline-none focus:right-2 focus:ring-green-400 p-3 rounded-2xl" onclick="showInputNominal()">
+  <!-- Left -->
+  <span class="flex items-center gap-5">
+    <span class="i-material-symbols-person-outline text-icon-lg text-brands-light-green flex-shrink-0"></span>
+    <span class="flex flex-col">
+      <span class="text-sm font-semibold text-gray-900 line-clamp-2">Shania</span>
+      <span class="text-xs text-gray-500 line-clamp-1">1231241</span>
+    </span>
+  </span>
+  <!-- Left -->
+
+  <!-- Right -->
+  <span class="flex items-center gap-2 flex-shrink-0">
+
+    <span class="i-material-symbols-chevron-right-rounded text-icon-md text-gray-900"></span>
+  </span>
+  <!-- Right -->
+</a>
+<div class="flex gap-4 whitespace-nowrap px-5 my-2.5">
+  <div class="flex-grow-1 h-[1px] w-full bg-gray-300"></div>
+</div>
+<a href="#" class="flex justify-between hover:bg-emerald-50 focus:outline-none focus:right-2 focus:ring-green-400 p-3 rounded-2xl" onclick="showInputNominal()">
+  <!-- Left -->
+  <span class="flex items-center gap-5">
+    <span class="i-material-symbols-person-outline text-icon-lg text-brands-light-green flex-shrink-0"></span>
+    <span class="flex flex-col">
+      <span class="text-sm font-semibold text-gray-900 line-clamp-2">Aliyah</span>
+      <span class="text-xs text-gray-500 line-clamp-1">524523252352</span>
+    </span>
+  </span>
+  <!-- Left -->
+
+  <!-- Right -->
+  <span class="flex items-center gap-2 flex-shrink-0">
+
+    <span class="i-material-symbols-chevron-right-rounded text-icon-md text-gray-900"></span>
+  </span>
+  <!-- Right -->
+</a>
+<div class="flex gap-4 whitespace-nowrap px-5 my-2.5">
+  <div class="flex-grow-1 h-[1px] w-full bg-gray-300"></div>
+</div>
+<a href="#" class="flex justify-between hover:bg-emerald-50 focus:outline-none focus:right-2 focus:ring-green-400 p-3 rounded-2xl" onclick="showInputNominal()">
+  <!-- Left -->
+  <span class="flex items-center gap-5">
+    <span class="i-material-symbols-person-outline text-icon-lg text-brands-light-green flex-shrink-0"></span>
+    <span class="flex flex-col">
+      <span class="text-sm font-semibold text-gray-900 line-clamp-2">Arden</span>
+      <span class="text-xs text-gray-500 line-clamp-1">12312431241</span>
+    </span>
+  </span>
+  <!-- Left -->
+
+  <!-- Right -->
+  <span class="flex items-center gap-2 flex-shrink-0">
+
+    <span class="i-material-symbols-chevron-right-rounded text-icon-md text-gray-900"></span>
+  </span>
+  <!-- Right -->
+</a>
+<div class="flex gap-4 whitespace-nowrap px-5 my-2.5 last:hidden">
+  <div class="flex-grow-1 h-[1px] w-full bg-gray-300"></div>
+</div>     
+<!-- items -->
+</div>
+        </div>
+                <!-- Section search contact -->
+               
+                <!-- Section input nominal -->
+                <div id="modal-content--input-nominal" class="hidden">
+                  <form action="a" method="post" class="flex flex-col gap-4 w-full">
+                    <!-- logo dan search button -->
+                    <div class="flex justify-between">
+                      <div class="flex items-center gap-4">
+                        <img src="../images/logo-green.svg" alt="logo" class="h-5">
+                        <div class="flex items-center gap-2 text-xs">
+                          <span>Jane Dane</span>
+                          <span class="i-material-symbols-circle text-gray-500 text-[4px]"></span>
+                          <span>2131312412</span>
+                        </div>
+                      </div>
+  
+                      <a href="#" class="text-xs font-semibold text-brands-light-green hover:text-brands-light-green focus:outline-none focus:right-2 focus:ring-green-400" onclick="showSearchContact()">Cari Contact</a>
+                    </div>
+                     <!-- logo dan search button -->
+  
+                     <!-- input -->
+                     <div>
+                      <div class="relative">
+                        <input inputmode="numeric" type="number" id="my-input-text" class="w-full rounded-2xl border border-gray-400 bg-white p-3 ps-12 pe-12 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-green-400 focus:ring-2 invalid:bg-red-200 invalid:text-red-900 invalid:caret-red-900 focus:invalid:ring-red-900 peer disabled:border-gray-300 disabled:bg-gray-100" placeholder="Nominal Rupiah" >
+                        <div class="absolute inset-y-0 end-0 text-icon-md flex items-center pe-4 text-gray-400 peer-invalid:text-red-400 peer-invalid:peer-focus:text-red-900">
+                          <span class="i-material-symbols-search-rounded"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="button" class="justify-center inline-flex items-center bg-brands-light-green rounded-xl p-2.5 text-white gap-2 font-semibold hover:bg-brands-dark-green text-xs uppercase focus:outline-none focus:ring-2 focus:ring-green-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400">
+                      <span class="i-material-symbols-send-rounded text-icon-sm"></span>
+                      <span>Lanjut Kirim</span>
+                    </button>
+                       <!-- input -->
+                  </form>
+                </div>
+                 <!-- Section input nominal -->
+              </div>
+            </div>
+           </dialog>
+           <!-- modal transfer -->
     </div>
   </body>
 </html>
